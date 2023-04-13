@@ -1,0 +1,21 @@
+# Specifies which syntax version of Docker compose
+version: '3'
+
+# Build a multiservice arhitecture.
+services:
+  # Create a service called web
+  web:
+    # Build an image from the files in the project root directory (Dockerfile)
+    build: ./backend
+    # Assigns a name for the container. If no name is specified,
+    # Docker will assign the container a random name
+    container_name: backend_app
+
+    ports:
+      - "8000:8000"
+  frontend:
+    
+    build: ./app
+    container_name: frontend_app
+    ports:
+      - "3000:3000"
